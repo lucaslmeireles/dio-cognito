@@ -9,8 +9,7 @@ exports.handler = async (event) => {
     let {id, price} = JSON.parse(event.body);
     
     const params = {
-      TableName : 'Items',
-      /* Item properties will depend on your application concerns */
+      TableName : 'DIOitems',
       Item: {
          id: id,
          price: price
@@ -21,7 +20,7 @@ exports.handler = async (event) => {
         
         await dynamodb.put(params).promise();
         statusCode = 200;
-        responseBody = JSON.stringify('Item inserido com sucesso!');
+        responseBody = JSON.stringify('Item inserido');
         
     } catch (err) {
           
